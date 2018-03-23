@@ -132,8 +132,9 @@ neofetch| grep Uptime | sed -e 's/\(.*43C\)\{1\}//g'
 cat /home/goldameir/Garbage/currency-prices.txt
 cat /home/goldameir/Garbage/tamil-panchang.txt
 
-# Aliases
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
+# Aliases
 f() { gedit "$@" &; }
 endorse() { echo Congratulations, $1! You\'ve been successfully endorsed for $3 $4. }
 
