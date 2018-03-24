@@ -142,16 +142,11 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-cat /home/goldameir/Garbage/currency-prices.txt
-cat /home/goldameir/Garbage/tamil-panchang.txt
-
-a=$(((RANDOM % 2)))
-
 #b="$(which python)3"
 #alias python=$b
 #alias python='/usr/bin/python3'
 
-# custom PSX 
+# custom PSX
 export PS1="\t [\u@\h \W]\\$ \[$(tput sgr0)\]"
 #export PROMPT_COMMAND="echo -n [$(date +%k:%m:%S)]"
 #PS1 : default interactive prompt
@@ -173,3 +168,7 @@ alias sudo="sudo "
 #then
 #    printf "No \n" | lolcat
 #fi
+
+# git stuff
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
