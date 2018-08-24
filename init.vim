@@ -1,0 +1,1 @@
+/home/goldameir/.vimrc
