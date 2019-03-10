@@ -1,6 +1,4 @@
 " nithin's vimrc
-" designed for use with MinTTY/Git Bash
-" see <https://github.com/mintty/mintty/wiki/Keycodes>
 
 " command behavior
 set showcmd
