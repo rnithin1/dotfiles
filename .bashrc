@@ -13,7 +13,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+# shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -21,7 +21,7 @@ HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+# shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -108,34 +108,34 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
 
 eval $(thefuck --alias)
 
 # added by Anaconda3 4.4.0 installer
-#export PATH="/home/goldameir/anaconda3/bin:$PATH"
+#export PATH="/home/arielsharon/anaconda3/bin:$PATH"
 
 
 
 # 'python' linked to python3 normally, else /path/to/virtualenv/python
-if ! [[ $PATH =~ "/home/goldameir/.pythonrc/bin" ]]
+if ! [[ $PATH =~ "/home/arielsharon/.pythonrc/bin" ]]
 then
-  export PATH="/home/goldameir/.pythonrc/bin:$PATH"
+  export PATH="/home/arielsharon/.pythonrc/bin:$PATH"
 fi
 
 
 
 
 # for custom terminal viewing purposes
-if ! [[ $PATH =~ "/home/goldameir/Garbage" ]]
+if ! [[ $PATH =~ "/home/arielsharon/Garbage" ]]
 then
-  export PATH="/home/goldameir/Garbage:$PATH"
+  export PATH="/home/arielsharon/Garbage:$PATH"
 fi
 
 RED='\033[0;31m'
@@ -157,17 +157,6 @@ alias sudo="sudo "
 #PS2 : secondary prompt for \
 #PS3 : selector prompt
 #PS4 : prefixes tracing output for set -x
-
-
-#printf "Is Sritam gay? "
-#if [ $a == 0 ]
-#then
-#    printf "Yes \n" | lolcat
-#fi
-#if [ $a == 1 ]
-#then
-#    printf "No \n" | lolcat
-#fi
 
 # git stuff
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

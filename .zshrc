@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$Users/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/goldameir/.oh-my-zsh
+  export ZSH=/Users/arielsharon/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -107,15 +107,26 @@ export JAVA_HOME=/usr/lib/jvm/java-9-oracle
 export TERM="xterm-256color"
 export EDITOR=vim
 
-if ! [[ $PATH =~ "/home/goldameir/.pythonrc/bin" ]]
+if ! [[ $PATH =~ "/Users/arielsharon/.pythonrc/bin" ]]
 then
-  export PATH="/home/goldameir/.pythonrc/bin:$PATH"
+  export PATH="/Users/arielsharon/.pythonrc/bin:$PATH"
 fi
 
-if ! [[ $PATH =~ "/home/goldameir/Garbage" ]]
+if ! [[ $PATH =~ "/Users/arielsharon/Garbage" ]]
 then
-  export PATH="/home/goldameir/Garbage:$PATH"
+  export PATH="/Users/arielsharon/Garbage:$PATH"
 fi
+
+if ! [[ $PATH =~ "/usr/local/texlive/2018/bin/x86_64-darwin" ]]
+then
+  export PATH="/usr/local/texlive/2018/bin/x86_64-darwin:$PATH"
+fi
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonrc/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 venvwrap="virtualenvwrapper.sh"
 which $venvwrap > /dev/null
@@ -124,13 +135,10 @@ if [ $? -eq 0 ]; then
 	source $venvwrap > /dev/null
 fi
 
-# Dart path
-export PATH="/usr/lib/dart/bin:$PATH"
-
 # Extras
-neofetch| grep Uptime | sed -e 's/\(.*43C\)\{1\}//g'
-cat /home/goldameir/Garbage/currency-prices.txt
-cat /home/goldameir/Garbage/tamil-panchang.txt
+#neofetch| grep Uptime | sed -e 's/\(.*43C\)\{1\}//g'
+#cat /Users/arielsharon/Garbage/currency-prices.txt
+#cat /Users/arielsharon/Garbage/tamil-panchang.txt
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
@@ -148,11 +156,11 @@ alias scheme='mit-scheme'
 alias scm='scheme'
 
 # Directories
-alias tibetan='/home/goldameir/Documents/school/tibetan'
-alias cs61b='/home/goldameir/Documents/school/cs61b/labs/lab01/'
-alias Garbage='/home/goldameir/Garbage'
-alias cs61a='/home/goldameir/Documents/school/17-fall/cs61a'
-alias landships='/home/goldameir/Downloads/Unity-Linux-2017.2.0b11/unity-editor-2017.2.0b11/Projects'
+alias tibetan='/Users/arielsharon/Documents/school/tibetan'
+alias cs61b='/Users/arielsharon/Documents/school/cs61b/labs/lab01/'
+alias Garbage='/Users/arielsharon/Garbage'
+alias cs61a='/Users/arielsharon/Documents/school/17-fall/cs61a'
+alias landships='/Users/arielsharon/Downloads/Unity-Linux-2017.2.0b11/unity-editor-2017.2.0b11/Projects'
 
 # Virtualenv
 alias workoff='deactivate'
@@ -165,9 +173,8 @@ alias solc="./node_modules/.bin/solcjs"
 alias truffle='./node_modules/.bin/truffle'
 
 # Jython
-alias jython="java -jar /home/goldameir/Garbage/jython/jython.jar"
-alias jip="/home/goldameir/Garbage/jython/bin/pip"
+alias jython="java -jar /Users/arielsharon/Garbage/jython/jython.jar"
+alias jip="/Users/arielsharon/Garbage/jython/bin/pip"
 
 # thefuck
 eval $(thefuck --alias)
-

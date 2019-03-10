@@ -118,6 +118,9 @@ Plug 'tomlion/vim-solidity'
 " completor
 Plug 'maralla/completor.vim'
 
+" vim colour schemes
+Plug 'flazz/vim-colorschemes'
+
 call plug#end()
 
 " F7 toggles NerdTree
@@ -127,7 +130,7 @@ nnoremap <silent> <F7> :NERDTreeToggle<CR>
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " colors
-colorscheme molokai
+colorscheme badwolf
 set t_Co=256
 set background=dark
 syntax on
