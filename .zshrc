@@ -1,34 +1,50 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
-# export PATH=$Users/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+DEFAULT_USER=whoami
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/Users/arielsharon/.oh-my-zsh
+export ZSH="/home/rnithin/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME=robbyrussell
-ZSH_THEME="bullet-train"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+GITSTATUS_LOG_LEVEL=DEBUG
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -49,19 +65,21 @@ ZSH_THEME="bullet-train"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,101 +98,38 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-#BULLETTRAIN_PROMPT_ORDER=(
-#	git
-#	context
-#	dir
-#	time
-#)
-
+#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Custom configurations
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+PATH=${PATH}:
 
-export JAVA_HOME=/usr/lib/jvm/java-9-oracle
-export TERM="xterm-256color"
-export EDITOR=vim
-
-if ! [[ $PATH =~ "/Users/arielsharon/.pythonrc/bin" ]]
-then
-  export PATH="/Users/arielsharon/.pythonrc/bin:$PATH"
-fi
-
-if ! [[ $PATH =~ "/Users/arielsharon/Garbage" ]]
-then
-  export PATH="/Users/arielsharon/Garbage:$PATH"
-fi
-
-if ! [[ $PATH =~ "/usr/local/texlive/2018/bin/x86_64-darwin" ]]
-then
-  export PATH="/usr/local/texlive/2018/bin/x86_64-darwin:$PATH"
-fi
-
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME
-export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonrc/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-venvwrap="virtualenvwrapper.sh"
-which $venvwrap > /dev/null
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/rnithin/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-	venvwrap=`/usr/bin/which $venvwrap` > /dev/null
-	source $venvwrap > /dev/null
+    eval "$__conda_setup"
+else
+    if [ -f "/home/rnithin/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/rnithin/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/rnithin/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
 fi
 
-# Extras
-#neofetch| grep Uptime | sed -e 's/\(.*43C\)\{1\}//g'
-#cat /Users/arielsharon/Garbage/currency-prices.txt
-#cat /Users/arielsharon/Garbage/tamil-panchang.txt
-
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-# Aliases
-f() { gedit "$@" &; }
-endorse() { echo Congratulations, $1! You\'ve been successfully endorsed for $3 $4. }
-
-alias sudo='sudo '
-alias gedit=f
-alias emsdk=~/Downloads/emsdk-portable/emsdk
-alias F="echo 'Respects have been paid.'"
-alias Shannon-Nyquist="echo 'If a function x(t) contains no frequencies higher than B hertz, it is completely determined by giving its ordinates at a series of points spaced 1/(2B) seconds apart.'"
-alias clera='clear'
-alias scheme='mit-scheme'
-alias scm='scheme'
-
-# Directories
-alias tibetan='/Users/arielsharon/Documents/school/tibetan'
-alias cs61b='/Users/arielsharon/Documents/school/cs61b/labs/lab01/'
-alias Garbage='/Users/arielsharon/Garbage'
-alias cs61a='/Users/arielsharon/Documents/school/17-fall/cs61a'
-alias landships='/Users/arielsharon/Downloads/Unity-Linux-2017.2.0b11/unity-editor-2017.2.0b11/Projects'
-
-# Virtualenv
-alias workoff='deactivate'
-alias mkvirtualenv='mkvirtualenv --python=python3'
-
-# Ethereum
-alias geth-rinkeby='geth --rinkeby --syncmode "fast" --datadir=devchain --rpc --rpccorsdomain "*" --rpcapi "eth,web3,personal,net,miner,admin,debug" --verbosity 0 console'
-alias ganache-cli="./node_modules/.bin/ganache-cli"
-alias solc="./node_modules/.bin/solcjs"
-alias truffle='./node_modules/.bin/truffle'
-
-# Jython
-alias jython="java -jar /Users/arielsharon/Garbage/jython/jython.jar"
-alias jip="/Users/arielsharon/Garbage/jython/bin/pip"
-
-# thefuck
-eval $(thefuck --alias)
